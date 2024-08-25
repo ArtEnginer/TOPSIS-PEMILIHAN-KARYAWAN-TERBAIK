@@ -1,0 +1,93 @@
+[
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551a",
+        "kode": "C01",
+        "nama": "KRITERIA 1",
+        "bobot": 5,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551b",
+        "kode": "C02",
+        "nama": "KRITERIA 2",
+        "bobot": 7,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551c",
+        "kode": "C03",
+        "nama": "KRITERIA 3",
+        "bobot": 7,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551d",
+        "kode": "C04",
+        "nama": "KRITERIA 4",
+        "bobot": 11,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551e",
+        "kode": "C05",
+        "nama": "KRITERIA 5",
+        "bobot": 10,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551f",
+        "kode": "C06",
+        "nama": "KRITERIA 6",
+        "bobot": 7,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551g",
+        "kode": "C07",
+        "nama": "KRITERIA 7",
+        "bobot": 6,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551h",
+        "kode": "C08",
+        "nama": "KRITERIA 8",
+        "bobot": 6,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551i",
+        "kode": "C09",
+        "nama": "KRITERIA 9",
+        "bobot": 6,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551j",
+        "kode": "C10",
+        "nama": "KRITERIA 10",
+        "bobot": 9,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551k",
+        "kode": "C11",
+        "nama": "KRITERIA 11",
+        "bobot": 5,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551l",
+        "kode": "C12",
+        "nama": "KRITERIA 12",
+        "bobot": 7,
+        "updated_at": "2024-07-15 11:35:06"
+    },
+    {
+        "id": "9c863f67-ee33-4f50-9397-5abb200b551m",
+        "kode": "C13",
+        "nama": "KRITERIA 13",
+        "bobot": 5,
+        "updated_at": "2024-07-15 11:35:06"
+    }
+]
