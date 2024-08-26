@@ -16,13 +16,21 @@ $("#periode").on("change", function () {
     alternatifMap[x.id] = x.nama;
   });
 
-  const groupedData = {};
+  const groupedDatas = {};
   filteredData.forEach((item) => {
-    if (!groupedData[item.alternatif_id]) {
-      groupedData[item.alternatif_id] = {};
+    if (!groupedDatas[item.alternatif_id]) {
+      groupedDatas[item.alternatif_id] = {};
     }
-    groupedData[item.alternatif_id][item.kriteria_id] = item.subkriteria.value;
+    groupedDatas[item.alternatif_id][item.kriteria_id] = item.subkriteria.value;
   });
+
+  // gruped sort by id alternatif
+  const groupedData = {};
+  Object.keys(groupedDatas)
+    .sort()
+    .forEach((key) => {
+      groupedData[key] = groupedDatas[key];
+    });
 
   let table = `
    <div class="row">
@@ -91,7 +99,7 @@ $("#periode").on("change", function () {
           const values = kriteria.map((k) => {
             const value = groupedData[alternatif_id][k.id] || 0;
             const average = averages[k.id] || 1;
-            return (value / average).toFixed(2);
+            return value / average;
           });
 
           return `
@@ -115,7 +123,7 @@ $("#periode").on("change", function () {
     const values = kriteria.map((k) => {
       const value = groupedData[alternatif_id][k.id] || 0;
       const average = averages[k.id] || 1;
-      return (value / average).toFixed(2);
+      return value / average;
     });
 
     return values.map((value, index) => value * bobot[index]);
@@ -143,7 +151,7 @@ $("#periode").on("change", function () {
           return `
             <tr>
               <td>${alternatifMap[alternatif_id] || alternatif_id}</td>
-              ${values.map((value) => `<td>${value.toFixed(2)}</td>`).join("")}
+              ${values.map((value) => `<td>${value}</td>`).join("")}
             </tr>`;
         })
         .join("")}
@@ -183,15 +191,11 @@ $("#periode").on("change", function () {
   <tbody>
     <tr>
       <td>Ideal Positif (A+)</td>
-      ${solusiIdealPositif
-        .map((value) => `<td>${value.toFixed(2)}</td>`)
-        .join("")}
+      ${solusiIdealPositif.map((value) => `<td>${value}</td>`).join("")}
     </tr>
     <tr>
       <td>Ideal Negatif (A-)</td>
-      ${solusiIdealNegatif
-        .map((value) => `<td>${value.toFixed(2)}</td>`)
-        .join("")}
+      ${solusiIdealNegatif.map((value) => `<td>${value}</td>`).join("")}
     </tr>
   </tbody>
 </table>
@@ -236,8 +240,8 @@ $("#periode").on("change", function () {
         return `
           <tr>
             <td>${alternatifMap[alternatif_id] || alternatif_id}</td>
-            <td>${jarakPositif[index].toFixed(2)}</td>
-            <td>${jarakNegatif[index].toFixed(2)}</td>
+            <td>${jarakPositif[index]}</td>
+            <td>${jarakNegatif[index]}</td>
           </tr>`;
       })
       .join("")}
@@ -253,7 +257,7 @@ $("#periode").on("change", function () {
   // Calculate Kedekatan Terhadap Solusi Ideal (V)
   const kedekatanRelatif = jarakNegatif.map((dNegatif, index) => {
     const dPositif = jarakPositif[index];
-    return dPositif / (dNegatif + dPositif);
+    return dNegatif / (dNegatif + dPositif);
   });
 
   // Create table for Kedekatan Relatif (V)
