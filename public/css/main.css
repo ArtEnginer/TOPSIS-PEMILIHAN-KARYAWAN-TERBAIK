@@ -18,6 +18,7 @@
   --placeholder: #848484;
   word-wrap: break-word;
 }
+
 pre {
   color: var(--code-color);
   font-size: var(--code-font-size);
@@ -119,6 +120,7 @@ body {
   background: #f2f2f2;
   border-radius: 15% 15% 35% 35%;
 }
+
 .loader::after {
   content: "";
   box-sizing: border-box;
@@ -130,6 +132,7 @@ body {
   height: 20px;
   border-radius: 0 4px 4px 0;
 }
+
 .loader::before {
   content: "";
   position: absolute;
@@ -146,9 +149,11 @@ body {
   0% {
     box-shadow: 2px 0px rgba(255, 255, 255, 0), 12px 0px rgba(255, 255, 255, 0.3), 20px 0px rgba(255, 255, 255, 0);
   }
+
   50% {
     box-shadow: 2px -5px rgba(255, 255, 255, 0.5), 12px -3px rgba(255, 255, 255, 0.5), 20px -2px rgba(255, 255, 255, 0.6);
   }
+
   100% {
     box-shadow: 2px -8px rgba(255, 255, 255, 0), 12px -5px rgba(255, 255, 255, 0), 20px -5px rgba(255, 255, 255, 0);
   }
@@ -289,6 +294,7 @@ table .nominal::before {
   opacity: 0;
   transition: opacity ease-in-out 0.3s;
 }
+
 .popup-wrapper.open .popup-overlay {
   opacity: 1;
   z-index: 21;
@@ -324,12 +330,15 @@ table .nominal::before {
   cursor: pointer;
   transition: all ease-in-out 0.15s;
 }
+
 .popup-wrapper.close-button .popup-close {
   display: flex;
 }
+
 .popup-close:hover {
   transform: scale(1.1);
 }
+
 .popup-close:active {
   transform: scale(0.975);
 }
@@ -337,6 +346,7 @@ table .nominal::before {
 .popup-title {
   position: relative;
 }
+
 .popup-title::after {
   content: "";
   position: absolute;
@@ -366,9 +376,11 @@ table .nominal::before {
   max-width: 20rem;
   margin: 0 auto;
 }
+
 .popup-wrapper.addon-button .popup-button {
   display: block;
 }
+
 /* .popup-wrapper.addon-button .popup-content {
   max-height: 70vh;
 } */
@@ -392,15 +404,18 @@ table .nominal::before {
   overflow: hidden;
   transition: all ease 0.3s;
 }
+
 .auth-card .page-slider.active {
   left: 0%;
 }
+
 .auth-card .page-slider .page-nav {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .auth-card .page-slider .page-content {
   background-color: white;
   flex: 1;
@@ -458,19 +473,24 @@ img.pasfoto:active {
   .popup-title {
     text-align: center;
   }
+
   .popup-title::after {
     left: 50%;
     bottom: -0.5rem;
     transform: translateX(-50%);
   }
+
   .popup-box {
     padding: 2rem 3rem 1rem;
   }
+
   .table-control {
     justify-content: center;
   }
 }
+
 @media only screen and (min-width: 992px) {
+
   /* For desktop large: */
   ::-webkit-scrollbar {
     width: 0.25rem;
@@ -480,6 +500,7 @@ img.pasfoto:active {
   ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0);
   }
+
   ::-webkit-scrollbar:hover ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.2);
   }
@@ -508,6 +529,7 @@ img.pasfoto:active {
     right: auto;
     width: 100%;
   }
+
   31% {
     left: auto;
     right: 0;
@@ -525,6 +547,7 @@ img.pasfoto:active {
     right: 0;
     width: 100%;
   }
+
   76% {
     left: 0;
     right: auto;

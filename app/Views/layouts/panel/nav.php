@@ -8,14 +8,14 @@
     </div>
     <div class="nav-item" data-page="alternatif">
         <a href="<?= base_url('kelola/alternatif') ?>" class="nav-link"><i class="material-icons">list</i>Data
-            Alternatif</a>
+            Karyawan</a>
     </div>
     <div class="nav-item" data-page="kriteria">
         <a href="<?= base_url('kelola/kriteria') ?>" class="nav-link"><i class="material-icons">book</i>Data Kriteria</a>
     </div>
     <div class="nav-item" data-page="penilaian">
         <a href="<?= base_url('kelola/penilaian') ?>" class="nav-link"><i class="material-icons">rate_review</i>Penilaian
-            Alternatif</a>
+            Karyawan</a>
     </div>
     <div class="nav-item" data-page="implementasi">
         <a href="<?= base_url('kelola/implementasi') ?>" class="nav-link"><i class="material-icons">calculate</i>Implementasi

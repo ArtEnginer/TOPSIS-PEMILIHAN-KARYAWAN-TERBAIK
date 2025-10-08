@@ -1,0 +1,470 @@
+/* Enhanced Dashboard Styles */
+:root {
+    /* Use main CSS theme colors */
+    --dashboard-primary: var(--primary-color, #405d5b);
+    --dashboard-secondary: var(--darker-color, #344846);
+    --dashboard-canvas: var(--canvas-color, #e3edec);
+    --dashboard-hover: var(--primary-hover, #344846);
+    --dashboard-active: var(--primary-active, #12554e);
+    --dashboard-gradient: var(--primary-gradient, linear-gradient(to top, #344846, #405d5b, #255b61, #12554e));
+
+    /* Dashboard specific colors based on theme */
+    --dashboard-glass: rgba(64, 93, 91, 0.1);
+    --dashboard-glass-border: rgba(64, 93, 91, 0.2);
+    --dashboard-accent: #255b61;
+    --dashboard-light: rgba(227, 237, 236, 0.95);
+    --dashboard-shadow: rgba(52, 72, 70, 0.2);
+}
+
+.dashboard-container {
+    background: var(--dashboard-canvas);
+    position: relative;
+}
+
+.dashboard-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, var(--dashboard-glass) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--dashboard-glass) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Header Animations */
+.dashboard-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, var(--dashboard-glass), transparent);
+    animation: shine 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* Glass Effect Cards */
+.glass-card {
+    background: var(--dashboard-light);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--dashboard-glass-border);
+    border-radius: 20px;
+    box-shadow:
+        0 8px 32px var(--dashboard-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 20px 40px var(--dashboard-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced Stat Cards */
+.stat-card-enhanced {
+    background: var(--dashboard-light);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    border: 1px solid var(--dashboard-glass-border);
+}
+
+.stat-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--dashboard-glass), transparent);
+    transition: left 0.5s;
+}
+
+.stat-card-enhanced:hover::before {
+    left: 100%;
+}
+
+.stat-card-enhanced:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 20px 40px var(--dashboard-shadow);
+}
+
+.stat-number-enhanced {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--dashboard-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-icon-enhanced {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    background: var(--dashboard-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 10px 30px var(--dashboard-shadow);
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 3D Chart Cards */
+.chart-card-3d {
+    background: var(--dashboard-light);
+    border-radius: 25px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 20px 40px var(--dashboard-shadow),
+        0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.chart-card-3d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--dashboard-gradient);
+    background-size: 200% 100%;
+    animation: gradientMove 3s ease infinite;
+}
+
+@keyframes gradientMove {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.chart-card-3d:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Data Visualization Enhancements */
+.metric-card {
+    background: var(--dashboard-gradient);
+    color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.metric-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: slideAcross 4s infinite;
+}
+
+@keyframes slideAcross {
+    0% {
+        right: -100px;
+    }
+
+    100% {
+        right: 100%;
+    }
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 0.5rem 0 0 0;
+}
+
+/* Progress Bars */
+.progress-bar-custom {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--dashboard-gradient);
+    border-radius: 10px;
+    transition: width 2s ease;
+    animation: progressPulse 2s infinite;
+}
+
+@keyframes progressPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Table Enhancements */
+.enhanced-table {
+    background: var(--dashboard-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--dashboard-shadow);
+}
+
+.enhanced-table thead th {
+    background: var(--dashboard-gradient);
+    color: white;
+    font-weight: 600;
+    padding: 1.5rem 1rem;
+    border: none;
+}
+
+.enhanced-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.enhanced-table tbody tr:hover {
+    background: linear-gradient(90deg, var(--dashboard-glass), var(--dashboard-glass));
+    transform: scale(1.02);
+}
+
+/* Interactive Elements */
+.dashboard-btn {
+    background: var(--dashboard-gradient);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px var(--dashboard-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.dashboard-btn:hover::before {
+    left: 100%;
+}
+
+.dashboard-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px var(--dashboard-shadow);
+}
+
+.dashboard-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Performance Indicators */
+.performance-indicator {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: pulse 2s infinite;
+}
+
+.performance-excellent {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.performance-good {
+    background: linear-gradient(135deg, var(--dashboard-primary), var(--dashboard-secondary));
+    color: white;
+    box-shadow: 0 4px 15px var(--dashboard-shadow);
+}
+
+.performance-average {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Loading Animations */
+.loading-enhanced {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.spinner-enhanced {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--dashboard-glass-border);
+    border-top: 4px solid var(--dashboard-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: relative;
+}
+
+.spinner-enhanced::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--dashboard-accent);
+    border-radius: 50%;
+    animation: spin 0.5s linear infinite reverse;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stat-card-enhanced {
+        padding: 1.5rem;
+    }
+
+    .stat-number-enhanced {
+        font-size: 2rem;
+    }
+
+    .stat-icon-enhanced {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .chart-card-3d {
+        padding: 1rem;
+    }
+
+    .dashboard-header {
+        padding: 1.5rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .glass-card {
+        background: rgba(52, 72, 70, 0.3);
+        border: 1px solid var(--dashboard-glass-border);
+    }
+
+    .stat-card-enhanced,
+    .chart-card-3d,
+    .enhanced-table {
+        background: rgba(52, 72, 70, 0.7);
+        color: white;
+    }
+}
+
+/* Accessibility */
+.dashboard-btn:focus,
+.stat-card-enhanced:focus {
+    outline: 3px solid var(--dashboard-glass-border);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .dashboard-container {
+        background: white !important;
+    }
+
+    .glass-card,
+    .stat-card-enhanced,
+    .chart-card-3d {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+}

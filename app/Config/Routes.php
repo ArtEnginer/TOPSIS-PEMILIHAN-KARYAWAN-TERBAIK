@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\Api\AlternatifController;
+use App\Controllers\Api\DashboardController;
 use App\Controllers\Api\HasilController;
 use App\Controllers\Api\KriteriaController;
 use App\Controllers\Api\PenilaianController;
@@ -21,6 +22,7 @@ service('auth')->routes($routes);
 $routes->environment('development', static function ($routes) {
     $routes->get('migrate', [Migrate::class, 'index']);
     $routes->get('migrate/(:any)', [Migrate::class, 'execute']);
+    $routes->get('data-check', 'DataCheck::index');
 });
 
 $routes->group('kelola', static function (RouteCollection $routes) {
@@ -36,6 +38,7 @@ $routes->group('kelola', static function (RouteCollection $routes) {
 
 $routes->group('api', ['namespace' => 'App\Controllers\Api'], static function ($routes) {
     $routes->group('v2', ['namespace' => 'App\Controllers\Api'], static function ($routes) {});
+    $routes->get('dashboard', 'DashboardController::index');
     $routes->resource('alternatif', ['namespace' => '', 'controller' => AlternatifController::class, 'websafe' => 1]);
     $routes->get('kriteria/subkriteria/(:uuid)', 'KriteriaController::subkriteria/$1');
     $routes->resource('kriteria', ['namespace' => '', 'controller' => KriteriaController::class, 'websafe' => 1]);
