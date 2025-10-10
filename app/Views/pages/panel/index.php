@@ -342,9 +342,9 @@
                         <button class="dashboard-btn" onclick="loadDashboardData()">
                             <i class="fas fa-sync-alt"></i> Refresh Data
                         </button>
-                        <button class="dashboard-btn" onclick="exportDashboard()" style="margin-left: 1rem;">
+                        <!-- <button class="dashboard-btn" onclick="exportDashboard()" style="margin-left: 1rem;">
                             <i class="fas fa-download"></i> Export Report
-                        </button>
+                        </button> -->
                         <button class="dashboard-btn" onclick="toggleFullscreen()" style="margin-left: 1rem;">
                             <i class="fas fa-expand"></i> Fullscreen
                         </button>
