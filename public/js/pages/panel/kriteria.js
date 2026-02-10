@@ -1,8 +1,9 @@
+const url = `${baseURL}`;
 const table = {
   kriteria: $("#table-kriteria").DataTable({
     responsive: true,
     ajax: {
-      url: origin + "/api/kriteria",
+      url: url + "/api/kriteria",
       dataSrc: "",
     },
     columns: [
@@ -58,7 +59,7 @@ $("form#form-add").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/kriteria",
+    url: url + "/api/kriteria",
     data: data,
     cache: false,
     success: (data) => {
@@ -101,7 +102,7 @@ $("form#form-edit").on("submit", function (e) {
   button.attr("disabled", true);
   $.ajax({
     type: "POST",
-    url: origin + "/api/kriteria/" + data.id,
+    url: url + "/api/kriteria/" + data.id,
     data: data,
     cache: false,
     success: (data) => {
@@ -148,7 +149,7 @@ $("body").on("click", ".btn-action", function (e) {
         if (result.isConfirmed) {
           $.ajax({
             type: "DELETE",
-            url: origin + "/api/kriteria/" + id,
+            url: url + "/api/kriteria/" + id,
             cache: false,
             success: (data) => {
               table.kriteria.ajax.reload();
@@ -243,7 +244,7 @@ $("body").on("click", ".btn-action", function (e) {
         if (result.isConfirmed) {
           $.ajax({
             type: "DELETE",
-            url: origin + "/api/subkriteria/" + id,
+            url: url + "/api/subkriteria/" + id,
             cache: false,
             success: (data) => {
               cloud.pull("kriteria");
@@ -254,7 +255,7 @@ $("body").on("click", ".btn-action", function (e) {
                 $(
                   ".btn-popup[data-action=subkriteria][data-id=" +
                     selectedKriteriaId +
-                    "]"
+                    "]",
                 ).trigger("click");
               }, 1000);
 
@@ -297,7 +298,7 @@ $("body").on("submit", "form#form-add-subkriteria", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/subkriteria",
+    url: url + "/api/subkriteria",
     data: dataPost,
     cache: false,
     success: (data) => {
@@ -335,7 +336,7 @@ $("body").on("submit", "form#form-edit-subkriteria", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/subkriteria/" + data.id,
+    url: url + "/api/subkriteria/" + data.id,
     data: dataPost,
     cache: false,
     success: (data) => {
@@ -355,7 +356,7 @@ $("body").on("submit", "form#form-edit-subkriteria", function (e) {
       $(
         ".btn-popup[data-action=subkriteria][data-id=" +
           selectedKriteriaId +
-          "]"
+          "]",
       ).trigger("click");
     },
   });
@@ -369,7 +370,7 @@ $("body").on("click", ".btn-slider-close", function () {
 
 $(document).ready(function () {
   cloud
-    .add(origin + "/api/kriteria", {
+    .add(url + "/api/kriteria", {
       name: "kriteria",
       callback: (data) => {
         table.kriteria.ajax.reload();
@@ -378,7 +379,7 @@ $(document).ready(function () {
     .then((kriteria) => {});
 
   cloud
-    .add(origin + "/api/subkriteria", {
+    .add(url + "/api/subkriteria", {
       name: "subkriteria",
       callback: (data) => {},
     })

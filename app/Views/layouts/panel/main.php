@@ -1,4 +1,5 @@
 <?php
+
 /** @var \CodeIgniter\View\View $this */
 ?>
 
@@ -7,24 +8,24 @@
 
 <head>
     <!--Import Google Icon Font-->
-    <?=$this->include('layouts/head')?>
-    <?=$this->renderSection('head')?>
-    <?=$this->include('layouts/style')?>
-    <link type="text/css" rel="stylesheet" href="<?=base_url('css/materialize.min.css')?>" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="<?=base_url('css/pages/panel.css?timestamp=' . time())?>" />
-    <?=$this->renderSection('style')?>
+    <?= $this->include('layouts/head') ?>
+    <?= $this->renderSection('head') ?>
+    <?= $this->include('layouts/style') ?>
+    <link type="text/css" rel="stylesheet" href="<?= base_url('css/materialize.min.css') ?>" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="<?= base_url('css/pages/panel.css?timestamp=' . time()) ?>" />
+    <?= $this->renderSection('style') ?>
 </head>
 
 <body>
     <div class="frame">
         <div class="nav-wrapper">
-            <?=$this->include('layouts/panel/nav')?>
+            <?= $this->include('layouts/panel/nav') ?>
         </div>
         <div class="topbar-wrapper">
-            <?=$this->include('layouts/panel/topbar')?>
+            <?= $this->include('layouts/panel/topbar') ?>
         </div>
         <div class="content-wrapper">
-            <?=$this->renderSection('main')?>
+            <?= $this->renderSection('main') ?>
         </div>
     </div>
     <div class="popup-wrapper">
@@ -34,23 +35,25 @@
         <div class="popup side">
             <h1>Center</h1>
         </div>
-        <?=$this->renderSection('popup')?>
+        <?= $this->renderSection('popup') ?>
     </div>
-
-    <!--JavaScript at end of body for optimized loading-->
-    <?=$this->include('layouts/script')?>
     <script>
-    const dt = new DataTable('.init-datatables', {
-        responsive: true
-    });
-    const menuContainer = $('.menu-container');
-    const page = '<?=$page ?? 'dashboard'?>';
-    const baseUrl = '<?=base_url()?>';
+        const baseURL = '<?= base_url() ?>';
     </script>
-    <script type="text/javascript" src="<?=base_url('js/materialize.min.js')?>"></script>
-    <script src="<?=base_url("js/pages/panel/main.js?timestamp=" . time())?>"></script>
-    <script src="<?=base_url("js/pages/panel/$page.js?timestamp=" . time())?>"></script>
-    <?=$this->renderSection('script')?>
+    <!--JavaScript at end of body for optimized loading-->
+    <?= $this->include('layouts/script') ?>
+    <script>
+        const dt = new DataTable('.init-datatables', {
+            responsive: true
+        });
+        const menuContainer = $('.menu-container');
+        const page = '<?= $page ?? 'dashboard' ?>';
+        const baseUrl = '<?= base_url() ?>';
+    </script>
+    <script type="text/javascript" src="<?= base_url('js/materialize.min.js') ?>"></script>
+    <script src="<?= base_url("js/pages/panel/main.js?timestamp=" . time()) ?>"></script>
+    <script src="<?= base_url("js/pages/panel/$page.js?timestamp=" . time()) ?>"></script>
+    <?= $this->renderSection('script') ?>
 </body>
 
 </html>

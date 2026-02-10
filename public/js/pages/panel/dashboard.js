@@ -1,9 +1,10 @@
+const url = `${baseURL}`;
 const elalternatif = $("[data-entity=alternatif]");
 const elkriteria = $("[data-entity=kriteria]");
 
 $(document).ready(function () {
   cloud
-    .add(origin + "/api/alternatif", {
+    .add(url + "/api/alternatif", {
       name: "alternatif",
       callback: (data) => {
         elalternatif.text(service.length).counterUp();
@@ -13,7 +14,7 @@ $(document).ready(function () {
       elalternatif.text(service.length).counterUp();
     });
   cloud
-    .add(origin + "/api/kriteria", {
+    .add(url + "/api/kriteria", {
       name: "kriteria",
       callback: (data) => {
         elkriteria.text(customer.length).counterUp();

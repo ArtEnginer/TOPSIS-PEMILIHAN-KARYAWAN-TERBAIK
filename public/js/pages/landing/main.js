@@ -5,7 +5,7 @@ $(".parent-wrapper").scroll(function () {
   console.log(
     $(this).scrollTop(),
     $(this).innerHeight(),
-    $(this)[0].scrollHeight
+    $(this)[0].scrollHeight,
   );
 });
 
@@ -34,7 +34,7 @@ $("form#form-diagnosa").on("submit", function (e) {
   $(this).find("button[type=submit]").attr("disabled", true);
   $.ajax({
     type: "POST",
-    url: origin + "/api/implementasi",
+    url: url + "/api/implementasi",
     data: data,
     success: (res) => {
       console.log(res);
@@ -72,7 +72,7 @@ $("form#form-diagnosa").on("submit", function (e) {
                   <td>${item.belief.toFixed(2)}</td>
                   <td>${item.plausibility.toFixed(2)}</td>
                 </tr>
-              `
+              `,
                 )
                 .join("")}
             </tbody>

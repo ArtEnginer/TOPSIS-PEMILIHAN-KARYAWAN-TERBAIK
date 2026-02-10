@@ -19,7 +19,7 @@ $("body").on("submit", "form#login", function (e) {
       const a = {};
       a[uri[0]] = uri[1];
       return a;
-    }
+    },
   );
   urlParams.forEach((uri) => {
     data[Object.keys(uri)[0]] = Object.values(uri)[0];
@@ -29,7 +29,7 @@ $("body").on("submit", "form#login", function (e) {
   // $(".preloader").slideDown();
   $.ajax({
     type: "POST",
-    url: origin + "/login",
+    url: url + "/login",
     data: data,
     cache: false,
     success: async function (response) {

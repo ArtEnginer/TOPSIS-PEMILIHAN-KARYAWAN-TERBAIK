@@ -1,8 +1,9 @@
+const url = `${baseURL}`;
 let table;
 
 $(document).ready(function () {
   cloud
-    .add(origin + "/api/hasil", {
+    .add(url + "/api/hasil", {
       name: "hasil",
       callback: (data) => {
         table.hasil.ajax.reload();

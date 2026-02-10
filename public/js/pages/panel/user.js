@@ -1,8 +1,9 @@
+const url = `${baseURL}`;
 const table = {
   user: $("#table-user").DataTable({
     responsive: true,
     ajax: {
-      url: origin + "/api/user",
+      url: url + "/api/user",
       dataSrc: "",
     },
     columns: [
@@ -47,7 +48,7 @@ $("form#form-user").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/user",
+    url: url + "/api/user",
     data: data,
     cache: false,
     success: (data) => {
@@ -87,7 +88,7 @@ $("form#form-edit").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/user/" + data.id,
+    url: url + "/api/user/" + data.id,
     data: data,
     cache: false,
     success: (data) => {
@@ -135,7 +136,7 @@ $("form#form-password").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/user/" + data.id,
+    url: url + "/api/user/" + data.id,
     data: data,
     cache: false,
     success: (data) => {
@@ -177,7 +178,7 @@ $("body").on("click", ".btn-action", function (e) {
         if (result.isConfirmed) {
           $.ajax({
             type: "DELETE",
-            url: origin + "/api/user/" + id,
+            url: url + "/api/user/" + id,
             cache: false,
             success: (data) => {
               table.user.ajax.reload();
@@ -214,7 +215,7 @@ $("body").on("click", ".btn-action", function (e) {
 
 $(document).ready(function () {
   cloud
-    .add(origin + "/api/user", {
+    .add(url + "/api/user", {
       name: "user",
       callback: (data) => {
         table.user.ajax.reload();

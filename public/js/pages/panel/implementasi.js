@@ -1,3 +1,4 @@
+const url = `${baseURL}`;
 $("#periode").on("change", function () {
   const periode = $(this).val();
   const dataPenilaian = cloud.get("penilaian");
@@ -304,7 +305,7 @@ $("#periode").on("change", function () {
   };
 
   $.ajax({
-    url: `${origin}/api/hasil/save`,
+    url: `${url}/api/hasil/save`,
     method: "POST",
     cache: false,
     contentType: "application/json",
@@ -369,21 +370,21 @@ $("#periode").on("change", function () {
 });
 
 $(document).ready(function () {
-  cloud.add(origin + "/api/penilaian", {
+  cloud.add(url + "/api/penilaian", {
     name: "penilaian",
     callback: (data) => {
       table.penilaian.ajax.reload();
     },
   });
 
-  cloud.add(origin + "/api/kriteria", {
+  cloud.add(url + "/api/kriteria", {
     name: "kriteria",
     callback: (data) => {
       table.kriteria.ajax.reload();
     },
   });
 
-  cloud.add(origin + "/api/alternatif", {
+  cloud.add(url + "/api/alternatif", {
     name: "alternatif",
     callback: (data) => {
       table.alternatif.ajax.reload();

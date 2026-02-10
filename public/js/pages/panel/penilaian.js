@@ -1,3 +1,4 @@
+const url = `${baseURL}`;
 const table = {
   alternatif: [],
   kriteria: [],
@@ -30,7 +31,7 @@ function buildTable() {
       $select.append("<option value='' disabled selected>Pilih</option>");
       subKriteria.forEach((sub) => {
         $select.append(
-          "<option value='" + sub.id + "'>" + sub.nama + "</option>"
+          "<option value='" + sub.id + "'>" + sub.nama + "</option>",
         );
       });
       $row.append($("<td>").append($select));
@@ -50,16 +51,17 @@ function buildTable() {
 }
 
 $(document).ready(function () {
-  $.when($.getJSON("/api/alternatif"), $.getJSON("/api/kriteria")).done(
-    function (alternatifData, kriteriaData) {
-      table.alternatif = alternatifData[0];
-      table.kriteria = kriteriaData[0];
-      buildTable();
-      $(".preloader").slideUp();
-      M.AutoInit();
-      M.updateTextFields();
-    }
-  );
+  $.when(
+    $.getJSON(`${url}/api/alternatif`),
+    $.getJSON(`${url}/api/kriteria`),
+  ).done(function (alternatifData, kriteriaData) {
+    table.alternatif = alternatifData[0];
+    table.kriteria = kriteriaData[0];
+    buildTable();
+    $(".preloader").slideUp();
+    M.AutoInit();
+    M.updateTextFields();
+  });
 
   $(".preloader").slideUp();
 
@@ -90,7 +92,7 @@ $(document).ready(function () {
 
     // Send data to server
     $.ajax({
-      url: "/api/penilaian/save",
+      url: `${url}/api/penilaian/save`,
       type: "POST",
       contentType: "application/json",
       data: JSON.stringify(penilaianData),

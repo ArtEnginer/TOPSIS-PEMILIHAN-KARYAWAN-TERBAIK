@@ -1,8 +1,9 @@
+const url = `${baseURL}`;
 const table = {
   alternatif: $("#table-alternatif").DataTable({
     responsive: true,
     ajax: {
-      url: origin + "/api/alternatif",
+      url: url + "/api/alternatif",
       dataSrc: "",
     },
     columns: [
@@ -50,7 +51,7 @@ $("form#form-add").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: origin + "/api/alternatif",
+    url: url + "/api/alternatif",
     data: data,
     cache: false,
     success: (data) => {
@@ -93,7 +94,7 @@ $("form#form-edit").on("submit", function (e) {
   button.attr("disabled", true);
   $.ajax({
     type: "POST",
-    url: origin + "/api/alternatif/" + data.id,
+    url: url + "/api/alternatif/" + data.id,
     data: data,
     cache: false,
     success: (data) => {
@@ -139,7 +140,7 @@ $("body").on("click", ".btn-action", function (e) {
         if (result.isConfirmed) {
           $.ajax({
             type: "DELETE",
-            url: origin + "/api/alternatif/" + id,
+            url: url + "/api/alternatif/" + id,
             cache: false,
             success: (data) => {
               table.alternatif.ajax.reload();
@@ -178,7 +179,7 @@ $("body").on("click", ".btn-slider-close", function () {
 
 $(document).ready(function () {
   cloud
-    .add(origin + "/api/alternatif", {
+    .add(url + "/api/alternatif", {
       name: "alternatif",
       callback: (data) => {
         table.alternatif.ajax.reload();
